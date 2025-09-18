@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "python": "/workspace/yswang26/opt/miniforge3/envs/illm/bin/python",
+            "program": "${workspaceFolder}/projects/illm/eval_folder_example_debug.py",
+            "cwd": "${workspaceFolder}/projects/illm/",
+            "args": ["./data/demo"],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/projects/illm/:${env:PYTHONPATH}",
+                "TORCH_HOME": "${workspaceFolder}/projects/illm/cache/"
+            },
+            "justMyCode": false
+        }
+    ]
+}

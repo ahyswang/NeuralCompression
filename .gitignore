@@ -160,3 +160,8 @@ neuralcompression/version.py
 
 # logs created by hydra
 **/run-logs/**
+
+
+projects/illm/cache/*
+projects/illm/data/*
+projects/illm/output_dir/*

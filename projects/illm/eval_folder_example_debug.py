@@ -23,6 +23,7 @@ from neuralcompression.metrics import (
     update_patch_fid,
 )
 
+from torchvision.utils import save_image
 
 def rescale_image(image: Tensor, back_to_float: bool = True) -> Tensor:
     dtype = image.dtype
@@ -76,6 +77,14 @@ def main():
 
         orig_image = rescale_image(image)
         pred_image = rescale_image(decompressed)
+
+        # 保存重建图像
+        output_filename = "./output_dir/" + f"reconstructed_{image_path.stem}.png"
+        save_image(decompressed, output_filename)
+        
+        # 可选：也保存原图用于对比
+        original_filename = "./output_dir/" + f"original_{image_path.stem}.png"
+        save_image(image, original_filename)
 
         with torch.no_grad():
             update_patch_fid(image, decompressed, fid_metric)
